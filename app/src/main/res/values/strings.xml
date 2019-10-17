@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Test de Controles y Eventos</string>
+    <string name="str_checkbox_ejemplo">Cajita de ejemplo</string>
 </resources>
