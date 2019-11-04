@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rbOpcion1;
     private RadioButton rbOpcion2;
     private TextView txtRadioOpciones;
+    private Switch swOpcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         this.rbOpcion1 = (RadioButton) findViewById(R.id.rbOpcion1);
         this.rbOpcion2 = (RadioButton) findViewById(R.id.rbOpcion2);
         this.txtRadioOpciones = (TextView) findViewById(R.id.txtRadioOpciones);
+        this.swOpcion = (Switch) findViewById(R.id.swOpcion);
 
         btnEstados.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -60,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                             "Hola " + nombre,
                                 Toast.LENGTH_LONG).show();
+            }
+        });
+
+        swOpcion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
             }
         });
     }
@@ -95,6 +105,26 @@ public class MainActivity extends AppCompatActivity {
                 if (isChecked) txtRadioOpciones.setText("Opción 2 elegida");
                 break;
         }
+    }
+
+    public void onSwitchClicked(View view) {
+        Boolean checked = swOpcion.isChecked();
+
+        /*        String resultado;
+
+        if(checked == true) {
+            resultado = "Está checkeado";
+        } else {
+            resultado = "NO está checkeado";
+        }
+
+        Toast.makeText(getApplicationContext(),
+                resultado,
+                Toast.LENGTH_LONG).show();*/
+
+        Toast.makeText(getApplicationContext(),
+                ((checked) ? "Está checkeado" : "NO está checkeado").toString(),
+                Toast.LENGTH_LONG).show();
     }
 
     // private void onBtnSaludarClicked(View view) // view <- btnSaludar
