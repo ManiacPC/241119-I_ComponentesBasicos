@@ -2,6 +2,7 @@ package com.example.testdecontrolesyeventos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rbOpcion2;
     private TextView txtRadioOpciones;
     private Switch swOpcion;
+    private Button btnIniciarActividad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         this.rbOpcion2 = (RadioButton) findViewById(R.id.rbOpcion2);
         this.txtRadioOpciones = (TextView) findViewById(R.id.txtRadioOpciones);
         this.swOpcion = (Switch) findViewById(R.id.swOpcion);
+        this.btnIniciarActividad = (Button) findViewById(R.id.btnIniciarActividad);
 
         btnEstados.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -65,6 +68,19 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
             }
         });
+
+        btnIniciarActividad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intento = new Intent(MainActivity.this, DetallesActivity.class);
+                intento.putExtra("mensaje", "Ábrete Detalles Activity (o':'o)");
+                intento.putExtra("otroMensaje", "Este es otro mensaje");
+
+                startActivity(intento);
+            }
+        });
+
+
 
         // Esta es la alternativa a utilizar el método onSwitchClicked, a través
         // del uso del listener (o sea, cuando cambia su valor, no cuando es clickeado)
