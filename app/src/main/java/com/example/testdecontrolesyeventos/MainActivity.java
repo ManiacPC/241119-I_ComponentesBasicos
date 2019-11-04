@@ -66,12 +66,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        swOpcion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        // Esta es la alternativa a utilizar el método onSwitchClicked, a través
+        // del uso del listener (o sea, cuando cambia su valor, no cuando es clickeado)
+        // Se obtiene el valor del switch (true o false) a través de la variable "checked"
+/*        swOpcion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Toast.makeText(getApplicationContext(),
+                        ((checked) ? "Está checkeado" : "NO está checkeado").toString(),
+                        Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 
     // Segunda forma para capturar un evento a través de un click
